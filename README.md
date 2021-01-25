@@ -6,6 +6,6 @@ WordTrender plots out the number of instances containing a specified word over t
 CommonPhrases prints how many times a 2-word or 3-word phrase occurs in the dataset.
 
 ## Technologies
-JDK
-Scala & SBT
-Hadoop
+-JDK
+-Scala & SBT
+-Hadoop
