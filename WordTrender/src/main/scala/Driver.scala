@@ -7,13 +7,11 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat
 
 object Driver {
-  var numWordsPerPhrase = 1
-  var minInstancesNeeded = 2
+  var word = ""
 
   def main(args: Array[String]): Unit = {
     // Set parameters
-    numWordsPerPhrase = args(1).toInt
-    minInstancesNeeded = args(2).toInt
+    word = args(1)
 
     // Set configuration
     val conf = new Configuration
@@ -24,9 +22,9 @@ object Driver {
     job.setJarByClass(this.getClass)
 
     // Set MapReduce values
-    job.setMapperClass(classOf[PhrasesMapper])
-    job.setCombinerClass(classOf[PhrasesReducer])
-    job.setReducerClass(classOf[PhrasesReducer])
+    job.setMapperClass(classOf[TrendMapper])
+    job.setCombinerClass(classOf[TrendReducer])
+    job.setReducerClass(classOf[TrendReducer])
 
     job.setOutputKeyClass(classOf[Text])
     job.setOutputValueClass(classOf[IntWritable])
